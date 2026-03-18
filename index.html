@@ -199,21 +199,25 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2px;
+  align-items: stretch;
 }
 
 .press-item {
   background: var(--warm-dark);
-  padding: 48px;
+  padding: 20px 28px;
   transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .press-item:hover { background: #28231d; }
 
 .press-text {
-  font-size: 16px; line-height: 1.75;
+  font-size: 14px; line-height: 1.6;
   font-style: normal; font-weight: 300;
   color: var(--cream);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .press-source {
@@ -359,8 +363,28 @@ section {
   grid-template-columns: 100px 1fr auto;
   gap: 32px; align-items: center;
   padding: 28px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+
   transition: background 0.2s;
+}
+
+.show-item.sold-out {
+  position: relative;
+  opacity: 0.55;
+}
+
+.show-item.sold-out .show-info-title {
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,0.5);
+}
+
+.sold-out-badge {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(184,150,90,0.5);
+  padding: 3px 7px;
+  white-space: nowrap;
 }
 
 .show-date {
@@ -501,7 +525,7 @@ footer {
 }
 
 @media (max-width: 560px) {
-  .albums-grid { grid-template-columns: 1fr; }
+  .albums-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   nav { padding: 16px 20px; }
   .nav-links { display: none; }
 }
@@ -606,12 +630,17 @@ footer {
   display: flex; flex-direction: column;
 }
 .modal-close {
-  position: absolute; top: 16px; right: 20px;
-  background: none; border: none; cursor: pointer;
-  color: var(--muted); font-size: 22px; line-height: 1;
-  transition: color 0.2s;
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  cursor: pointer;
+  color: var(--cream); font-size: 18px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  z-index: 10;
 }
-.modal-close:hover { color: var(--cream); }
+.modal-close:hover { background: rgba(255,255,255,0.18); color: var(--off-white); }
 .modal-eyebrow {
   font-family: var(--mono);
   font-size: 10px; letter-spacing: 0.25em;
@@ -651,7 +680,7 @@ footer {
   color: var(--gold); text-transform: uppercase;
 }
 .modal-links {
-  display: flex; gap: 10px; flex-wrap: nowrap;
+  display: flex; gap: 10px; flex-wrap: wrap;
 }
 .modal-link {
   font-family: var(--mono);
@@ -670,8 +699,22 @@ footer {
 
 @media (max-width: 600px) {
   .modal-box { grid-template-columns: 1fr; }
-  .modal-cover { width: 100%; aspect-ratio: 16/9; border-radius: 7px 7px 0 0; }
+  .modal-cover { width: 100%; aspect-ratio: 2/1; border-radius: 7px 7px 0 0; position: relative; }
+  .modal-cover::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, var(--charcoal) 100%);
+    border-radius: 7px 7px 0 0;
+  }
   .modal-cover img { object-position: center top; }
+  .modal-body { background: var(--charcoal); border-radius: 0 0 7px 7px; padding-top: 16px; }
+  .modal-close {
+    width: 44px; height: 44px;
+    font-size: 20px;
+    top: 10px; right: 10px;
+    background: rgba(0,0,0,0.5);
+    border-color: rgba(255,255,255,0.25);
+  }
 }
 </style>
 </head>
@@ -705,23 +748,22 @@ footer {
 <section id="press">
   <div class="container">
     <div class="section-label">Press</div>
-    <div class="ornament">· · ·</div>
     <div class="press-grid">
       <div class="press-item reveal">
-        <p class="press-text">"The atmosphere on this album is dreamy and ethereal. Netzer and Geizhals often rely on simple and repetitive, one-note mantras and naive but engaging melodies."</p>
-        <span class="press-source">Salt Peanuts, 2022</span>
-      </div>
-      <div class="press-item reveal">
-        <p class="press-text">"Duo is a well crafted and attractive combination of straight-ahead balladeering and free-form improvisation by two masters of their instruments. Not party, but after-party music."</p>
-        <span class="press-source">Salt Peanuts, 2022</span>
-      </div>
-      <div class="press-item reveal">
-        <p class="press-text">"In a series of duo-format albums, each time with a different partner, saxophonist Eyal Netzer has emerged in recent years as one of the most creative wind-instrumentalists in local jazz."</p>
+        <p class="press-text">"An album soaked in emotion and beauty that will show itself in a slow and deep breath."</p>
         <span class="press-source">Haaretz, 2025</span>
       </div>
       <div class="press-item reveal">
-        <p class="press-text">"SHINE is an innovative jazz duet album that combines the raw energy of free jazz with the tradition of soulful, intimate jazz duets."</p>
-        <span class="press-source">Press Release, 2023</span>
+        <p class="press-text">"Two masters of their instruments."</p>
+        <span class="press-source">All About Jazz, 2022</span>
+      </div>
+      <div class="press-item reveal">
+        <p class="press-text">"Impressive and beautiful."</p>
+        <span class="press-source">Salt Peanuts, 2023</span>
+      </div>
+      <div class="press-item reveal">
+        <p class="press-text">"Beautiful, touching and soulful."</p>
+        <span class="press-source">Salt Peanuts, 2021</span>
       </div>
     </div>
   </div>
@@ -731,7 +773,6 @@ footer {
 <section id="music">
   <div class="container">
     <div class="section-label">Discography</div>
-    <div class="ornament">· · ·</div>
     <div class="albums-grid">
 
       <!-- Album 5: Tèkès -->
@@ -937,11 +978,10 @@ footer {
 <section id="shows">
   <div class="container">
     <div class="section-label">Shows</div>
-    <div class="ornament">· · ·</div>
-    <div class="show-item reveal">
+    <div class="show-item sold-out reveal">
       <div class="show-date">29 JAN 2026</div>
       <div>
-        <div class="show-info-title">Eyal Netzer & Strings</div>
+        <div class="show-info-title" style="display:flex; align-items:center; gap:10px;">Eyal Netzer & Strings <span class="sold-out-badge">Sold Out</span></div>
         <div class="show-info-venue">Tel Aviv</div>
       </div>
     </div>
@@ -952,8 +992,7 @@ footer {
 <section id="contact">
   <div class="container">
     <div class="section-label">Contact</div>
-    <!-- Replace with your actual email -->
-    <a href="mailto:yooltz1@gmail.com" class="contact-email reveal">yooltz1@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#671e08080b131d5627000a060e0b4904080a" class="contact-email"><span class="__cf_email__" data-cfemail="d1a8bebebda5abe091b6bcb0b8bdffb2bebc">[email&#160;protected]</span></a>
     <div class="social-links reveal">
 
       <a href="https://www.instagram.com/eyal.netzer/" target="_blank" class="social-link">
@@ -992,7 +1031,7 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-copy">© 2025 Eyal Netzer</span>
+  <span class="footer-copy">© 2026 Eyal Netzer</span>
   <span class="footer-copy" style="letter-spacing:0.05em; font-style:italic; opacity:0.5;">eyalnetzer.com</span>
 </footer>
 
@@ -1016,7 +1055,7 @@ footer {
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
@@ -1056,7 +1095,7 @@ const ALBUM_DATA = {
     eyebrow: 'Saxophone & String Ensemble · 2025',
     title: 'Tèkès',
     sub: 'Eyal Netzer',
-    desc: '"Tèkès" (Hebrew for ceremony) is an original instrumental work for string ensemble, saxophone, synthesizer and percussion. Inspired by spiritual jazz, the piece brings together musicians rooted in Arab-Andalusian traditions and contemporary classical music — united by a shared practice of improvisation.\n\nThe work unfolds in five parts, each embodying an archetype of the individual and collective soul: Creator, Destroyer, Fool, Lover, Seeker. Performers are given extensive freedom for personal expression and real-time musical decisions, guided by gesture and visual signs.',
+    desc: '"Tèkès" (Hebrew for ceremony) is an original instrumental work for string ensemble, saxophone, synthesizer and percussion. Inspired by spiritual jazz, it brings together musicians rooted in Arab-Andalusian and contemporary classical traditions, united by improvisation.\n\nThe work unfolds in five parts, each embodying a different archetype of the soul. Performers are given extensive freedom for personal expression and real-time musical decisions, guided by gesture and visual signs.',
     quote: 'an album soaked in emotion and beauty that will show itself in a slow and deep breath.',
     quoteSrc: 'Haaretz, 2025',
     links: [
@@ -1175,13 +1214,6 @@ document.querySelectorAll('.album-card').forEach(function(card) {
   card.addEventListener('click', function() {
     const key = this.getAttribute('data-album');
     if (key) openAlbumModal(key);
-  });
-});
-
-// Prevent Listen links from opening modal when clicked
-document.querySelectorAll('.album-listen').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    e.stopPropagation();
   });
 });
 </script>
