@@ -101,7 +101,15 @@ section { padding: 60px 0; }
   border: 1px solid rgba(184,150,90,0.35); padding: 9px 18px; transition: all 0.2s; white-space: nowrap;
 }
 .album-link:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
-.listen-note { font-size: 13px; color: var(--muted); font-style: italic; margin: 22px 0 12px; }
+.listen-secondary { display: flex; align-items: center; gap: 18px; margin-top: 22px; flex-wrap: wrap; }
+.listen-note { font-size: 13px; color: var(--muted); font-style: italic; margin: 0; max-width: 420px; }
+.short-frame {
+  position: relative; flex: 0 0 160px; width: 160px; aspect-ratio: 9/16;
+  border: 1px solid rgba(184,150,90,0.25); background: var(--charcoal);
+}
+.short-frame iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
 
 /* ── PRESS ── */
 #press { background: var(--charcoal); }
@@ -191,9 +199,11 @@ section { padding: 60px 0; }
       <a class="album-link" href="https://music.apple.com/il/album/t%C3%A8k%C3%A8s/1799512665" target="_blank">Apple Music</a>
       <a class="album-link" href="https://eyalnetzer.bandcamp.com/album/t-k-s" target="_blank">Bandcamp</a>
     </div>
-    <p class="listen-note">Modular chamber version — string quartet, piano &amp; saxophone, live:</p>
-    <div class="album-links">
-      <a class="album-link" href="https://youtube.com/shorts/1i69OzjUGKU?feature=share" target="_blank">Watch (String Quartet Version)</a>
+    <div class="listen-secondary">
+      <div class="short-frame">
+        <iframe src="https://www.youtube.com/embed/1i69OzjUGKU" title="YouTube short — String Quartet Version" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="listen-note">Modular chamber version — string quartet, piano &amp; saxophone, live:</p>
     </div>
   </div>
 </section>
