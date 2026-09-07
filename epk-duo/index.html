@@ -35,14 +35,6 @@ body::before {
   opacity: 0.03; pointer-events: none; z-index: 1000;
 }
 
-.private-banner {
-  background: var(--warm-dark);
-  border-bottom: 1px solid rgba(184,150,90,0.25);
-  padding: 12px 48px; text-align: center;
-  font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase;
-}
-
 header.epk-hero { padding: 90px 48px 60px; max-width: 900px; margin: 0 auto; }
 
 .epk-eyebrow {
@@ -70,6 +62,28 @@ section { padding: 60px 0; }
   display: flex; align-items: center; gap: 16px;
 }
 .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(184,150,90,0.4), transparent); }
+
+/* ── SHORT VIDEO (vertical) ── */
+.short-wrap {
+  max-width: 900px; margin: 0 auto; padding: 0 48px 60px; display: flex; justify-content: center;
+}
+.short-frame {
+  position: relative; width: 100%; max-width: 320px; aspect-ratio: 9/16;
+  border: 1px solid rgba(184,150,90,0.25); background: var(--charcoal);
+}
+.short-frame iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
+
+/* ── CONCERTS ── */
+#concerts { background: var(--charcoal); }
+.show-item {
+  display: grid; grid-template-columns: 110px 1fr; gap: 28px; align-items: center;
+  padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 22px;
+}
+.show-date { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--gold); }
+.show-info-title { font-size: 15px; font-weight: 400; color: var(--off-white); margin-bottom: 3px; }
+.show-info-venue { font-size: 13px; color: var(--muted); font-style: italic; }
 
 /* ── LATEST RELEASE ── */
 #latest { background: var(--charcoal); }
@@ -188,6 +202,9 @@ section { padding: 60px 0; }
 }
 
 /* ── CONTACT ── */
+/* ── MATERIALS ── */
+#materials { background: var(--black); }
+
 #contact { background: var(--warm-dark); text-align: center; }
 .contact-heading {
   font-family: var(--display); font-size: clamp(26px, 3.4vw, 40px);
@@ -199,11 +216,9 @@ section { padding: 60px 0; }
   color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,150,90,0.4); padding-bottom: 4px;
 }
 
-footer { background: var(--black); padding: 28px 48px; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
-.footer-copy { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em; }
-
 @media (max-width: 640px) {
-  .private-banner, header.epk-hero, .container { padding-left: 24px; padding-right: 24px; }
+  header.epk-hero, .container { padding-left: 24px; padding-right: 24px; }
+  .short-wrap { padding-left: 24px; padding-right: 24px; }
   header.epk-hero { padding-top: 56px; }
   .release-grid { grid-template-columns: 1fr; }
   .release-cover { max-width: 320px; }
@@ -213,13 +228,17 @@ footer { background: var(--black); padding: 28px 48px; text-align: center; borde
 </head>
 <body>
 
-<div class="private-banner">Private press kit · not linked from the public site · please don't share this URL publicly</div>
-
 <header class="epk-hero">
   <div class="epk-eyebrow">Duo Press Kit</div>
   <h1>EYAL NETZER<br>&amp; MILTON MICHAELI</h1>
   <p class="epk-subtitle">An ongoing duo series for tenor saxophone and piano — spiritual free jazz built on improvisation and a strong melodic core.</p>
 </header>
+
+<div class="short-wrap">
+  <div class="short-frame">
+    <iframe src="https://www.youtube.com/embed/rHcbCv7PvfQ" title="YouTube short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</div>
 
 <!-- LATEST RELEASE -->
 <section id="latest">
@@ -238,7 +257,7 @@ footer { background: var(--black); padding: 28px 48px; text-align: center; borde
 
         <div class="release-actions">
           <a class="action-link primary" href="https://www.youtube.com/watch?v=GYTQ1zOQbd4" target="_blank">Watch Video</a>
-          <span class="link-pending">Bandcamp free download — link coming soon</span>
+          <a class="action-link secondary" href="https://eyalnetzer.bandcamp.com/track/not-mine-nor-yours-its-just-happiness" target="_blank">Free Download (Bandcamp)</a>
         </div>
       </div>
     </div>
@@ -289,6 +308,31 @@ footer { background: var(--black); padding: 28px 48px; text-align: center; borde
   </div>
 </section>
 
+<!-- CONCERTS -->
+<section id="concerts">
+  <div class="container">
+    <div class="section-label">Upcoming Concerts</div>
+    <div class="show-item">
+      <div class="show-date">NOV 2026</div>
+      <div>
+        <div class="show-info-title">Tel Aviv Jazz Festival</div>
+        <div class="show-info-venue">Tel Aviv</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materials">
+  <div class="container">
+    <div class="section-label">Press Materials</div>
+    <div class="album-links">
+      <a class="album-link" href="https://github.com/yooltz1-ship-it/eyalnetzer/blob/main/epk-duo/Eyal%20Netzer%20%20duo%20%20stage%20plot.pdf" target="_blank">Download Stage Plot (PDF)</a>
+      <a class="album-link" href="https://github.com/yooltz1-ship-it/eyalnetzer/blob/main/epk-duo/eyal%20netzer_duo_press%20photos.zip" target="_blank">Download Press Photos (ZIP)</a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -297,10 +341,6 @@ footer { background: var(--black); padding: 28px 48px; text-align: center; borde
     <a href="mailto:yooltz1@gmail.com" class="contact-email">yooltz1@gmail.com</a>
   </div>
 </section>
-
-<footer>
-  <span class="footer-copy">© 2026 Eyal Netzer — Private press kit, not indexed or linked publicly</span>
-</footer>
 
 </body>
 </html>
