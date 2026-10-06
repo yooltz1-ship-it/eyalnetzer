@@ -237,10 +237,16 @@ section { padding: 60px 0; }
   color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,150,90,0.4); padding-bottom: 4px;
 }
 
+/* ── TOP BAR (link to main site) ── */
+.site-bar { max-width: 900px; margin: 0 auto; padding: 28px 48px 0; display: flex; justify-content: flex-end; }
+.site-bar .action-link { display: inline-block; }
+.site-bar .action-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
 @media (max-width: 640px) {
   header.epk-hero, .container { padding-left: 24px; padding-right: 24px; }
   .short-wrap { padding-left: 24px; padding-right: 24px; }
   header.epk-hero { padding-top: 56px; }
+  .site-bar { padding: 20px 24px 0; justify-content: flex-start; }
   .release-grid { grid-template-columns: 1fr; }
   .release-video-frame { max-width: 220px; }
   .album-row { grid-template-columns: 1fr; gap: 6px; }
@@ -250,6 +256,10 @@ section { padding: 60px 0; }
 </style>
 </head>
 <body>
+
+<nav class="site-bar">
+  <a class="action-link secondary" href="https://eyalnetzer.com">eyalnetzer.com</a>
+</nav>
 
 <header class="epk-hero">
   <div class="epk-eyebrow">Duo Press Kit</div>
