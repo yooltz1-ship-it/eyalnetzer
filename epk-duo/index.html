@@ -123,8 +123,18 @@ section { padding: 60px 0; }
   color: var(--cream); margin-bottom: 26px; max-width: 560px;
 }
 
-.release-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.listen-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+.release-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 8px; }
+.listen-label {
+  display: flex; align-items: center; gap: 16px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.35em;
+  color: var(--sand); text-transform: uppercase;
+  margin: 40px 0 20px;
+}
+.listen-label::after {
+  content: ""; flex: 1; height: 1px; max-width: 220px;
+  background: linear-gradient(to right, rgba(184,150,90,0.55), rgba(184,150,90,0));
+}
+.release-actions .action-link { padding: 13px 26px; font-size: 12px; letter-spacing: 0.14em; }
 
 .action-link {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
@@ -295,7 +305,13 @@ section { padding: 60px 0; }
           <a class="action-link secondary" href="https://open.spotify.com/album/3zOX4TTCOR8eZexHRiqIZx?si=7khMfn88SL2ZbDP6Q6-ljQ" target="_blank">Spotify</a>
           <a class="action-link secondary" href="https://music.apple.com/us/album/not-mine-nor-yours-its-just-happiness-single/6807704400" target="_blank">Apple Music</a>
           <a class="action-link secondary" href="https://www.youtube.com/watch?v=zNBMQHFvaHU" target="_blank">YouTube</a>
-          <a class="action-link primary" href="https://eyalnetzer.bandcamp.com/track/not-mine-nor-yours-its-just-happiness-2" target="_blank">Free Download (Bandcamp)</a>
+          <a class="action-link secondary" href="https://eyalnetzer.bandcamp.com/track/not-mine-nor-yours-its-just-happiness-2" target="_blank">Bandcamp</a>
+        </div>
+
+        <div class="listen-label">Free Download</div>
+        <div class="release-actions">
+          <a class="action-link primary" href="https://github.com/yooltz1-ship-it/eyalnetzer/releases/download/duo-audio/Eyal_Netzer_Not_Mine_Nor_Yours_Its_Just_Happiness.wav">WAV</a>
+          <a class="action-link primary" href="https://github.com/yooltz1-ship-it/eyalnetzer/releases/download/duo-audio/Eyal_Netzer_Not_Mine_Nor_Yours_Its_Just_Happiness.mp3">MP3</a>
         </div>
       </div>
     </div>
