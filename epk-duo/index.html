@@ -63,18 +63,6 @@ section { padding: 60px 0; }
 }
 .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(184,150,90,0.4), transparent); }
 
-/* ── SHORT VIDEO (vertical) ── */
-.short-wrap {
-  max-width: 900px; margin: 0 auto; padding: 0 48px 60px; display: flex; justify-content: center;
-}
-.short-frame {
-  position: relative; width: 100%; max-width: 320px; aspect-ratio: 9/16;
-  border: 1px solid rgba(184,150,90,0.25); background: var(--charcoal);
-}
-.short-frame iframe {
-  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-}
-
 /* ── CONCERTS ── */
 #concerts { background: var(--black); }
 .show-item {
@@ -154,6 +142,64 @@ section { padding: 60px 0; }
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em;
   color: var(--muted); font-style: italic; padding: 11px 4px;
 }
+
+.release-dedication {
+  font-size: 12.5px; font-style: italic; color: var(--muted); margin-top: -14px; margin-bottom: 24px;
+}
+
+/* ── PREVIOUS SINGLE (compact) ── */
+#prev-single { background: var(--charcoal); padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+.compact-flag {
+  display: inline-block;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em;
+  color: var(--muted); border: 1px solid rgba(255,255,255,0.15);
+  text-transform: uppercase; padding: 4px 10px; margin-bottom: 20px;
+}
+
+.compact-grid {
+  display: grid; grid-template-columns: 130px 1fr; gap: 22px; align-items: start; max-width: 620px;
+}
+
+.compact-video-frame {
+  position: relative; width: 100%; aspect-ratio: 9/16;
+  border: 1px solid rgba(184,150,90,0.15); background: var(--warm-dark);
+}
+.compact-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.compact-title {
+  font-family: var(--display); font-size: 16px; font-weight: 600;
+  color: var(--sand); margin-bottom: 4px; line-height: 1.3;
+}
+
+.compact-from { font-size: 11.5px; font-style: italic; color: var(--muted); margin-bottom: 10px; }
+
+.compact-desc {
+  font-size: 13px; line-height: 1.65; font-weight: 300; color: var(--muted);
+  margin-bottom: 14px; max-width: 460px;
+}
+
+.compact-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 6px; }
+.compact-label {
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.3em;
+  color: var(--sand); text-transform: uppercase;
+  margin: 26px 0 14px;
+}
+.compact-label::after {
+  content: ""; flex: 1; height: 1px; max-width: 160px;
+  background: linear-gradient(to right, rgba(184,150,90,0.5), rgba(184,150,90,0));
+}
+
+.compact-link {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; text-decoration: none;
+  padding: 8px 14px; border-radius: 2px; transition: all 0.2s;
+  border: 1px solid rgba(184,150,90,0.3); color: var(--gold);
+}
+.compact-link:hover { background: rgba(184,150,90,0.1); }
+.compact-link.primary { background: rgba(184,150,90,0.6); color: var(--black); border-color: transparent; }
+.compact-link.primary:hover { background: var(--gold); }
 
 /* ── ALBUM ── */
 #album { background: var(--black); }
@@ -247,18 +293,12 @@ section { padding: 60px 0; }
   color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,150,90,0.4); padding-bottom: 4px;
 }
 
-/* ── TOP BAR (link to main site) ── */
-.site-bar { max-width: 900px; margin: 0 auto; padding: 28px 48px 0; display: flex; justify-content: flex-end; }
-.site-bar .action-link { display: inline-block; }
-.site-bar .action-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-
 @media (max-width: 640px) {
   header.epk-hero, .container { padding-left: 24px; padding-right: 24px; }
-  .short-wrap { padding-left: 24px; padding-right: 24px; }
   header.epk-hero { padding-top: 56px; }
-  .site-bar { padding: 20px 24px 0; justify-content: flex-start; }
   .release-grid { grid-template-columns: 1fr; }
   .release-video-frame { max-width: 220px; }
+  .compact-grid { grid-template-columns: 100px 1fr; }
   .album-row { grid-template-columns: 1fr; gap: 6px; }
   .album-hero { grid-template-columns: 1fr; }
   .album-cover { max-width: 260px; }
@@ -267,21 +307,11 @@ section { padding: 60px 0; }
 </head>
 <body>
 
-<nav class="site-bar">
-  <a class="action-link secondary" href="https://eyalnetzer.com">eyalnetzer.com</a>
-</nav>
-
 <header class="epk-hero">
   <div class="epk-eyebrow">Duo Press Kit</div>
   <h1>EYAL NETZER<br>&amp; MILTON MICHAELI</h1>
   <p class="epk-subtitle">An ongoing duo series for tenor saxophone and piano — spiritual free jazz built on improvisation and a strong melodic core.</p>
 </header>
-
-<div class="short-wrap">
-  <div class="short-frame">
-    <iframe src="https://www.youtube.com/embed/rHcbCv7PvfQ" title="YouTube short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</div>
 
 <!-- LATEST RELEASE -->
 <section id="latest">
@@ -291,27 +321,62 @@ section { padding: 60px 0; }
 
     <div class="release-grid">
       <div class="release-video-frame">
-        <iframe src="https://www.youtube.com/embed/_QsaxDEW7yM" title="YouTube short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/05yASAt7h2w" title="YouTube short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
 
       <div>
-        <div class="release-title">"Not Mine, Nor Yours — It's Just Happiness"</div>
-        <div class="release-from">Original by Eyal Netzer · First single from <em>Keeping the Fire</em></div>
+        <div class="release-title">"Alon, A Pianist in Captivity"</div>
+        <div class="release-from">Original by Eyal Netzer · Second single from <em>Keeping the Fire</em></div>
 
-        <p class="release-desc">A cry rendered as duet: tenor sax and piano in raw, rhythmic dialogue between turbulence and tenderness, recorded during wartime. First single from <em>Keeping the Fire</em>, Eyal Netzer's ongoing duo series with pianist Milton Michaeli. Spiritual free jazz built on improvisation and a strong melodic core — intense, unresolved, alive.</p>
+        <p class="release-desc">"Alon, A Pianist in Captivity" builds like a mantra — a melancholic, repeating sax-and-piano figure that gradually turns romantic through sheer patience. Second single from <em>Keeping the Fire</em>, Eyal Netzer's second duo album with pianist Milton Michaeli. A restrained, intimate piece where repetition becomes both longing and hope.</p>
+
+        <p class="release-dedication">Dedicated to Alon Ohel.</p>
 
         <div class="listen-label">Listen</div>
         <div class="release-actions">
-          <a class="action-link secondary" href="https://open.spotify.com/album/3zOX4TTCOR8eZexHRiqIZx?si=7khMfn88SL2ZbDP6Q6-ljQ" target="_blank">Spotify</a>
-          <a class="action-link secondary" href="https://music.apple.com/us/album/not-mine-nor-yours-its-just-happiness-single/6807704400" target="_blank">Apple Music</a>
-          <a class="action-link secondary" href="https://www.youtube.com/watch?v=zNBMQHFvaHU" target="_blank">YouTube</a>
-          <a class="action-link secondary" href="https://eyalnetzer.bandcamp.com/track/not-mine-nor-yours-its-just-happiness-2" target="_blank">Bandcamp</a>
+          <a class="action-link secondary" href="https://open.spotify.com/album/2qRFYyxYsa50PkWBXlVUPh" target="_blank">Spotify</a>
+          <!-- UPDATE LINK: Apple Music URL for "Alon, A Pianist in Captivity" -->
+          <a class="action-link secondary" href="#" target="_blank">Apple Music</a>
+          <a class="action-link secondary" href="https://eyalnetzer.bandcamp.com/track/alon-a-pianist-in-captivity-2" target="_blank">Bandcamp</a>
         </div>
 
         <div class="listen-label">Free Download</div>
         <div class="release-actions">
-          <a class="action-link primary" href="https://github.com/yooltz1-ship-it/eyalnetzer/releases/download/duo-audio/Eyal_Netzer_Not_Mine_Nor_Yours_Its_Just_Happiness.wav">WAV</a>
-          <a class="action-link primary" href="https://github.com/yooltz1-ship-it/eyalnetzer/releases/download/duo-audio/Eyal_Netzer_Not_Mine_Nor_Yours_Its_Just_Happiness.mp3">MP3</a>
+          <a class="action-link primary" href="https://github.com/yooltz1-ship-it/eyalnetzer/releases/download/duo-audio/Eyal_Netzer_Alon_A_Pianist_In_Captivity.wav">WAV</a>
+          <a class="action-link primary" href="https://github.com/yooltz1-ship-it/eyalnetzer/releases/download/duo-audio/Eyal_Netzer_Alon_A_Pianist_In_Captivity.mp3">MP3</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIOUS SINGLE -->
+<section id="prev-single">
+  <div class="container">
+    <div class="compact-flag">First Single</div>
+
+    <div class="compact-grid">
+      <div class="compact-video-frame">
+        <iframe src="https://www.youtube.com/embed/_QsaxDEW7yM" title="YouTube short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <div>
+        <div class="compact-title">"Not Mine, Nor Yours — It's Just Happiness"</div>
+        <div class="compact-from">Original by Eyal Netzer · First single from <em>Keeping the Fire</em></div>
+
+        <p class="compact-desc">A cry rendered as duet: tenor sax and piano in raw, rhythmic dialogue between turbulence and tenderness, recorded during wartime. Spiritual free jazz built on improvisation and a strong melodic core — intense, unresolved, alive.</p>
+
+        <div class="compact-label">Listen</div>
+        <div class="compact-actions">
+          <a class="compact-link" href="https://open.spotify.com/album/3zOX4TTCOR8eZexHRiqIZx?si=7khMfn88SL2ZbDP6Q6-ljQ" target="_blank">Spotify</a>
+          <a class="compact-link" href="https://music.apple.com/us/album/not-mine-nor-yours-its-just-happiness-single/6807704400" target="_blank">Apple Music</a>
+          <a class="compact-link" href="https://eyalnetzer.bandcamp.com/track/not-mine-nor-yours-its-just-happiness-2" target="_blank">Bandcamp</a>
+        </div>
+
+        <div class="compact-label">Free Download</div>
+        <div class="compact-actions">
+          <a class="compact-link primary" href="https://github.com/yooltz1-ship-it/eyalnetzer/releases/download/duo-audio/Eyal_Netzer_Not_Mine_Nor_Yours_Its_Just_Happiness.wav">WAV</a>
+          <a class="compact-link primary" href="https://github.com/yooltz1-ship-it/eyalnetzer/releases/download/duo-audio/Eyal_Netzer_Not_Mine_Nor_Yours_Its_Just_Happiness.mp3">MP3</a>
         </div>
       </div>
     </div>
@@ -327,7 +392,7 @@ section { padding: 60px 0; }
       <div class="album-text">
         <div class="album-title">Keeping the Fire</div>
         <div class="album-meta">Eyal Netzer &amp; Milton Michaeli · Duo · November 2026</div>
-        <p class="album-desc">Keeping the Fire is the second full-length album from the Eyal Netzer / Milton Michaeli duo, due November 2026, following 2023's <em>Shine</em>. Recorded for tenor saxophone and piano, it continues the duo's approach — strong melodic writing paired with open improvisation — but pushes further into intensity and rhythmic drive, shaped in part by the wartime conditions the sessions were recorded under. Mixed by one of Europe's top audio engineers, Philippe Teissier du Cros. Singles will roll out ahead of the album; this page will be updated as each one lands.</p>
+        <p class="album-desc">Keeping the Fire is the second full-length album from the Eyal Netzer / Milton Michaeli duo, due November 2026, following 2023's <em>Shine</em>. Recorded for tenor saxophone and piano, it continues the duo's approach — strong melodic writing paired with open improvisation — but pushes further into intensity and rhythmic drive, shaped in part by the wartime conditions the sessions were recorded under. Singles will roll out ahead of the album; this page will be updated as each one lands.</p>
       </div>
     </div>
   </div>
