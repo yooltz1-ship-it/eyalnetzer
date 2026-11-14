@@ -304,6 +304,21 @@ section { padding: 60px 0; }
   .album-cover { max-width: 180px; }
   .album-video-wrap { max-width: 180px; }
 }
+
+/* ── BACK TO TOP ── */
+.to-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 900;
+  width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;
+  background: var(--gold); color: var(--black);
+  border: 1px solid var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.5); border-radius: 50%;
+  cursor: pointer; padding: 0;
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity .3s, transform .3s, visibility .3s, background .2s, color .2s;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover, .to-top:focus-visible { background: var(--off-white); border-color: var(--off-white); outline: none; }
+.to-top svg { width: 18px; height: 18px; }
+@media (max-width: 640px) { .to-top { right: 16px; bottom: 16px; width: 42px; height: 42px; } }
 </style>
 </head>
 <body>
@@ -508,6 +523,23 @@ section { padding: 60px 0; }
     <a href="mailto:yooltz1@gmail.com" class="contact-email">yooltz1@gmail.com</a>
   </div>
 </section>
+
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function () {
+  var btn = document.getElementById('toTop');
+  function toggle() { btn.classList.toggle('show', (window.pageYOffset || document.documentElement.scrollTop) > 300); }
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  btn.addEventListener('click', function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+})();
+</script>
 
 </body>
 </html>
