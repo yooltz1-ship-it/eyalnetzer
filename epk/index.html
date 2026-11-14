@@ -35,7 +35,7 @@ body::before {
   opacity: 0.03; pointer-events: none; z-index: 1000;
 }
 
-header.epk-hero { padding: 90px 48px 50px; max-width: 900px; margin: 0 auto; text-align: center; }
+header.epk-hero { padding: 50px 48px 50px; max-width: 900px; margin: 0 auto; text-align: center; }
 
 .epk-eyebrow {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em;
@@ -198,9 +198,22 @@ footer { background: var(--black); padding: 28px 48px; text-align: center; borde
   .card-photo { grid-area: photo; }
   .card-arrow { justify-self: start; margin-top: 10px; }
 }
+
+/* ── TOP LINK ── */
+.top-bar { max-width: 900px; margin: 0 auto; padding: 28px 48px 0; }
+.top-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border: 1px solid rgba(184,150,90,0.5); padding: 10px 16px;
+  transition: background .2s, color .2s;
+}
+.top-btn:hover, .top-btn:focus-visible { background: var(--gold); color: var(--black); outline: none; }
+@media (max-width: 640px) { .top-bar { padding: 20px 24px 0; } }
 </style>
 </head>
 <body>
+<nav class="top-bar"><a class="top-btn" href="https://eyalnetzer.com/">&larr; eyalnetzer.com</a></nav>
 
 <header class="epk-hero">
   <div class="epk-eyebrow">Press Kits</div>
