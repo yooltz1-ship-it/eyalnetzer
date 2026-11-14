@@ -35,7 +35,7 @@ body::before {
   opacity: 0.03; pointer-events: none; z-index: 1000;
 }
 
-header.epk-hero { padding: 90px 48px 60px; max-width: 900px; margin: 0 auto; }
+header.epk-hero { padding: 50px 48px 60px; max-width: 900px; margin: 0 auto; }
 
 .epk-eyebrow {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em;
@@ -147,9 +147,22 @@ section { padding: 60px 0; }
   header.epk-hero { padding-top: 56px; }
   .fact-strip { grid-template-columns: 1fr; }
 }
+
+/* ── TOP LINK ── */
+.top-bar { max-width: 900px; margin: 0 auto; padding: 28px 48px 0; }
+.top-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border: 1px solid rgba(184,150,90,0.5); padding: 10px 16px;
+  transition: background .2s, color .2s;
+}
+.top-btn:hover, .top-btn:focus-visible { background: var(--gold); color: var(--black); outline: none; }
+@media (max-width: 640px) { .top-bar { padding: 20px 24px 0; } }
 </style>
 </head>
 <body>
+<nav class="top-bar"><a class="top-btn" href="https://eyalnetzer.com/">&larr; eyalnetzer.com</a></nav>
 
 <header class="epk-hero">
   <div class="epk-eyebrow">Press Kit</div>
@@ -228,13 +241,12 @@ section { padding: 60px 0; }
   <div class="container">
     <div class="section-label">Upcoming Performances</div>
     <div class="show-item">
-      <div class="show-date">NOV 2026</div>
+      <div class="show-date">20 NOV 2026</div>
       <div>
-        <div class="show-info-title">International Showcase Festival</div>
-        <div class="show-info-venue">Jerusalem</div>
+        <div class="show-info-title">Eyal Netzer &amp; Strings</div>
+        <div class="show-info-venue">TEDER, Tel Aviv</div>
       </div>
     </div>
-    <p class="shows-empty">Exact date to be confirmed — reach out directly for booking availability or further dates.</p>
   </div>
 </section>
 
